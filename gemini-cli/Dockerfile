@@ -2,7 +2,7 @@ FROM tgagor/gemini-cli:v0.45@sha256:8523945cd03885973abdb90fa9bf6232c523add8a5c6
 
 RUN apk add --no-cache python3 py3-pip build-base git npm && \
     git clone https://github.com/cruzyjapan/Gemini-CLI-UI.git /app && \
-    cd Gemini-CLI-UI && \
+    cd /app && \
     npm install && \
     cp .env.example .env && \
     mkdir /share
