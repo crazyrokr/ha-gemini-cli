@@ -1,13 +1,13 @@
 FROM tgagor/gemini-cli:v0.45@sha256:8523945cd03885973abdb90fa9bf6232c523add8a5c6a6386b87a07e441f4a4e
 
-RUN apk add --no-cache git && \
+RUN apk add --no-cache python3 py3-pip build-base git npm && \
     git clone https://github.com/cruzyjapan/Gemini-CLI-UI.git && \
-    apk del --no-cache git && \
     cd Gemini-CLI-UI && \
     npm install && \
     cp .env.example .env && \
-    mkdir /share && \
-    npm run dev
+    mkdir /share
+
+ENTRYPOINT ["npm", "run", "dev"]
 
 LABEL \
   org.opencontainers.image.title="Home Assistant Gemini CLI" \
