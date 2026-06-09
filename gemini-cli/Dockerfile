@@ -5,8 +5,9 @@ RUN apk add --no-cache python3 py3-pip build-base git npm && \
     cd Gemini-CLI-UI && \
     npm install && \
     cp .env.example .env && \
-    mkdir /share && \
-    npm run dev
+    mkdir /share
+
+ENTRYPOINT ["npm", "run", "dev"]
 
 LABEL \
   org.opencontainers.image.title="Home Assistant Gemini CLI" \
